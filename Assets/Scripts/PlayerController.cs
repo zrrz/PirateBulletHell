@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private float speed = 1.0f;
 
+	[SerializeField]
+	float maxRot = 10.0f;
+
 	void Start () {
 	
 	}
@@ -16,9 +19,9 @@ public class PlayerController : MonoBehaviour {
 			if(hit.collider != null) {
 				Vector2 dir = hit.point - new Vector2(transform.position.x, transform.position.y);
 
-				transform.position += (transform.up * speed);
-				transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
-				print(transform.up);
+				transform.position += transform.up * speed * Time.deltaTime;
+				Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRot, maxRot);
 			}
 		}
 	}
