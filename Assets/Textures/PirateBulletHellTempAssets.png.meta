@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9383b947470240b44a979f498f5fee68
-timeCreated: 1445736648
+timeCreated: 1445742194
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -88,9 +88,9 @@ TextureImporter:
     - name: Wave_Temp
       rect:
         serializedVersion: 2
-        x: 85
-        y: 1049
-        width: 703
+        x: 66
+        y: 733
+        width: 1405
         height: 236
       alignment: 0
       pivot: {x: .5, y: .5}
