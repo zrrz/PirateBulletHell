@@ -21,8 +21,7 @@ public class Weapon : MonoBehaviour {
 
 	public void Shoot(Collider2D collider) {
 		if(cooldownTimer <= 0f) {
-			print("shooting");
-			GameObject obj = (GameObject)Instantiate(projectile, transform.position, Quaternion.identity);
+			GameObject obj = StaticPool.GetObj(projectile, transform.position, Quaternion.identity);
 			obj.GetComponent<Projectile>().SetTarget(collider.transform, speed);
 			cooldownTimer = coolDown;
 		}

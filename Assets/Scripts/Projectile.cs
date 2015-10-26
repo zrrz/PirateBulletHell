@@ -12,24 +12,23 @@ public class Projectile : MonoBehaviour {
 
 	float speed;
 
-	void Start () {
-	
-	}
-	
 	void Update () {
 		if(target != null) {
 			time += Time.deltaTime * speed;
 			transform.position = Vector3.Lerp(startPosition, target.position, time);
 			if(time > 1f) {
 				Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-				Destroy(gameObject);
+				transform.position = Vector3.one * 1000f;
+				gameObject.SetActive(false);
 			}
 		} else {
-			Destroy(gameObject);
+			transform.position = Vector3.one * 1000f;
+			gameObject.SetActive(false);
 		}
 	}
 
 	public void SetTarget(Transform setTarget, float setSpeed) {
+		time = 0f;
 		startPosition = transform.position;
 		target = setTarget;
 		speed = setSpeed;
