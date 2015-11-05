@@ -3,18 +3,27 @@ using System.Collections;
 
 public class WeaponController : MonoBehaviour {
 
-	static int MAX_WEAPON_RANGE = 15;
+	public static int MAX_WEAPON_RANGE = 15;
 	[SerializeField]
-	LayerMask layerMask;
+	LayerMask targetMask;
 
-	public Weapon[] weapons;
+	public Weapon[] weaponPrefabs;
+	Weapon[] weapons;
 
 	void Start () {
-		
+		weapons = new Weapon[weaponPrefabs.Length];
+		for(int i = 0; i < weaponPrefabs.Length; i++) {
+			weapons[i] = (Weapon)Instantiate(weaponPrefabs[i], transform.position, transform.rotation);
+			weapons[i].transform.SetParent(transform);
+		}
 	}
 	
 	void Update () {
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, MAX_WEAPON_RANGE, layerMask);
+		FindTarget();
+	}
+
+	void FindTarget() {
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, MAX_WEAPON_RANGE, targetMask);
 		if(colliders.Length > 0) {
 			Collider2D closestCollider = colliders[0];
 			if(colliders.Length > 1) {
@@ -26,7 +35,6 @@ public class WeaponController : MonoBehaviour {
 			}
 			for(int i = 0; i < weapons.Length; i++) {
 				weapons[i].Shoot(closestCollider);
-//				print("shooting");
 			}
 		}
 	}

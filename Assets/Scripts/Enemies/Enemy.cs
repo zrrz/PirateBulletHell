@@ -15,4 +15,14 @@ public abstract class Enemy : BaseShip {
 	void Update () {
 	
 	}
+
+	protected override void Die ()
+	{
+		DropLoot();
+		base.Die ();
+	}
+
+	protected virtual void DropLoot() {
+
+	}
 }

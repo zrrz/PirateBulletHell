@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour {
 
 	float speed;
 
+	int damage;
+
 	void Update () {
 		if(target != null) {
 			time += Time.deltaTime * speed;
@@ -20,6 +22,7 @@ public class Projectile : MonoBehaviour {
 				Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 				transform.position = Vector3.one * 1000f;
 				gameObject.SetActive(false);
+				target.GetComponent<BaseShip>().TakeDamage(damage);
 			}
 		} else {
 			transform.position = Vector3.one * 1000f;
@@ -27,10 +30,11 @@ public class Projectile : MonoBehaviour {
 		}
 	}
 
-	public void SetTarget(Transform setTarget, float setSpeed) {
+	public void SetTarget(Transform setTarget, float setSpeed, int setDamage) {
 		time = 0f;
 		startPosition = transform.position;
 		target = setTarget;
 		speed = setSpeed;
+		damage = setDamage;
 	}
 }

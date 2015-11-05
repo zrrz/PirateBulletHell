@@ -21,9 +21,9 @@ public class PlayerController : BaseShip {
 		s_player = this;
 	}
 
-	void Start () {
-	
-	}
+//	void Start () {
+//	
+//	}
 	
 	void Update () {
 		if(Input.GetButton("Fire1")) {
@@ -32,5 +32,11 @@ public class PlayerController : BaseShip {
 				MoveTo(hit.point);
 			}
 		}
+	}
+
+	public override void TakeDamage (int damage)
+	{
+		base.TakeDamage (damage);
+		GUIManager.SetPlayerHealth(health);
 	}
 }

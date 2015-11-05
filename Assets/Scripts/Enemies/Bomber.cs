@@ -4,6 +4,7 @@ using System.Collections;
 public class Bomber : Enemy {
 
 	public GameObject explosionPrefab;
+	public int damage = 1;
 
 	protected override void Start () {
 		base.Start();
@@ -16,6 +17,7 @@ public class Bomber : Enemy {
 //				StaticPool.GetObj(explosionPrefab, transform.position, Quaternion.identity);
 				Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 				Destroy(gameObject);
+				player.GetComponent<BaseShip>().TakeDamage(damage);
 			}
 		}
 	}
