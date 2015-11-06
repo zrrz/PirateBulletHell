@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 367056757}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f214e27d6e8f289409c6185da29eebbf, type: 3}
   m_Name: 
@@ -12029,7 +12029,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   weaponPrefabs:
-  - {fileID: 11483804, guid: 3310c40e8d9e9a44a92c7e7a36630a30, type: 2}
+  - {fileID: 11483804, guid: f5c758a18146b4564abb08302e0ed327, type: 2}
 --- !u!58 &846430292
 CircleCollider2D:
   m_ObjectHideFlags: 0

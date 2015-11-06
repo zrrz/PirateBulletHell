@@ -37,4 +37,12 @@ public class Projectile : MonoBehaviour {
 		speed = setSpeed;
 		damage = setDamage;
 	}
+
+	public void SetTarget(Vector3 setTarget, float setSpeed, int setDamage) {
+		time = 0f;
+		startPosition = transform.position;
+		//target = setTarget;
+		speed = setSpeed;
+		damage = setDamage;
+	}
 }
