@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HeatseekCannon : Weapon {
+public class HeatSeekCannon : Weapon {
 
 //	void Start () {
 //	
